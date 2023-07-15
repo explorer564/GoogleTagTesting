@@ -3,10 +3,6 @@
 <head>
 
 
-<script>
-
-  
-</script>
 
   
   <!-- Google tag (gtag.js) -->
@@ -16,27 +12,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-7QXW4ZFDXR');
+  gtag('event','event 1');
 
- // Get all links on the page
- const links = document.querySelectorAll('a');
-  // Loop through all links and attach a click event listener to each one
-links.forEach(link => {
-  link.addEventListener('click', function(event) {
-    // Prevent the default behavior of following the link
-    event.preventDefault();
-
-    // Push a data layer event to Google Tag Manager
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'linkClick_t',
-      'linkText': link.textContent,
-      'linkUrl': link.href
-    });
-
-    // Redirect the user to the link destination
-    window.location.href = link.href;
-  });
-});
  
 </script>
 
