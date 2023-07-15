@@ -2,19 +2,7 @@
 <html>
 <head>
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QXW4ZFDXR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.datalayer.push({
-    'linkClicked' : 'aboutme'
-  });
-  
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-7QXW4ZFDXR');
-</script>
   
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -24,7 +12,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5NJ3XQS');</script>
 <!-- End Google Tag Manager -->
 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QXW4ZFDXR"></script>
+<script>
+ // Get all links on the page
+ const links = document.querySelectorAll('a');
+  // Loop through all links and attach a click event listener to each one
+links.forEach(link => {
+  link.addEventListener('click', function(event) {
+    // Prevent the default behavior of following the link
+    event.preventDefault();
 
+    // Push a data layer event to Google Tag Manager
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'linkClick',
+      'linkText': link.textContent,
+      'linkUrl': link.href
+    });
+
+    // Redirect the user to the link destination
+    window.location.href = link.href;
+  });
+});
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7QXW4ZFDXR');
+</script>
 
 <title>GMT Testing - Home</title>
 <meta name="description" content="Our first page">
