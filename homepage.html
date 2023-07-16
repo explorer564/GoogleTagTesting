@@ -1,6 +1,22 @@
 <!doctype html>
 <html>
 <head>
+<!-- Event snippet for Explorer Click About Me conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11261636736/6myHCIDVtLwYEIDh-_kp',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
 
 
@@ -40,8 +56,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Content goes here.</P>
 
-<a href="About me.html" target="_blank"  onclick="dataLayer.push({'event': 'buttonAboutMe-click'});">About Me</a>
-
-
+<!--<a href="About me.html" target="_blank"  onclick="dataLayer.push({'event': 'buttonAboutMe-click'});">About Me</a>-->
+<a href="About me.html" target="_blank"  onclick="return gtag_report_conversion('https://explorer564.github.io/GoogleTagTesting/About%20me.html')">About Me</a>
+  
 </body>
 </html>
